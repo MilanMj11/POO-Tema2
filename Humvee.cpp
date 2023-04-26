@@ -1,7 +1,8 @@
 #include "Humvee.h"
+#include <stdexcept>
 
-Humvee::Humvee(const std::string &name, int speed, int year, int capacity, int storage, bool bulletproof,
-               bool weaponized) : Vehicle(name, speed, year, capacity), storage(storage), bulletproof(bulletproof),
+Humvee::Humvee(const std::string &name, int speed, int year, int capacity, int storage, int occupied_storage,  bool bulletproof,
+               bool weaponized) : Vehicle(name, speed, year, capacity), storage(storage), occupied_storage(occupied_storage) , bulletproof(bulletproof),
                                   weaponized(weaponized) {}
 
 Humvee::~Humvee() {
@@ -44,9 +45,21 @@ bool Humvee::operator!=(const Humvee &rhs) const {
 }
 
 void Humvee::AddStorage(int s) {
-    Humvee::storage += s;
+    if(Humvee::occupied_storage + s > Humvee::storage){
+        throw   std::logic_error("Error, you cannot add that much storage");
+    }
+    Humvee::occupied_storage += s;
+    /// EXCEPTIE
 }
 
 void Humvee::RemoveStorage(int s) {
-    Humvee::storage -= s;
+    Humvee::occupied_storage -= s;
+}
+
+int Humvee::getOccupiedStorage() const {
+    return occupied_storage;
+}
+
+void Humvee::setOccupiedStorage(int occupiedStorage) {
+    occupied_storage = occupiedStorage;
 }

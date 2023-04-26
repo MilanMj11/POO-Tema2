@@ -23,6 +23,9 @@ public:
     bool isWeaponized() const;
     void setWeaponized(bool weaponized);
 
+    int getOccupiedStorage() const;
+    void setOccupiedStorage(int occupiedStorage);
+
     bool operator==(const Humvee &rhs) const;
     bool operator!=(const Humvee &rhs) const;
 
