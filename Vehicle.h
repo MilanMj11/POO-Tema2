@@ -32,6 +32,8 @@ public:
     bool operator!=(const Vehicle &rhs) const;
 
     friend std::ostream& operator << (std::ostream &os, const Vehicle &rhs);
+    friend std::istream& operator >> (std::istream &is,Vehicle &rhs);
+
 };
 
 
