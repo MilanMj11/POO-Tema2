@@ -46,7 +46,7 @@ bool Humvee::operator!=(const Humvee &rhs) const {
 
 void Humvee::AddStorage(int s) {
     if(Humvee::occupied_storage + s > Humvee::storage){
-        throw   std::logic_error("Error, you cannot add that much storage");
+        throw std::logic_error("Error, you cannot add that much storage");
     }
     Humvee::occupied_storage += s;
     /// EXCEPTIE
@@ -62,4 +62,8 @@ int Humvee::getOccupiedStorage() const {
 
 void Humvee::setOccupiedStorage(int occupiedStorage) {
     occupied_storage = occupiedStorage;
+}
+
+int Humvee::raw_speed() const {
+    return Humvee::getSpeed() - Humvee::occupied_storage * 2;
 }

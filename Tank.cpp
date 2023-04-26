@@ -26,6 +26,9 @@ void Tank::setArmor(int armor) {
 }
 
 void Tank::Shoot(){
+    if(Tank::ammunition == 0){
+        throw std::logic_error("Error, you cannot shoot, you have no more ammunition");
+    }
     Tank::ammunition--;
 }
 
@@ -54,4 +57,8 @@ bool Tank::operator==(const Tank &rhs) const {
 
 bool Tank::operator!=(const Tank &rhs) const {
     return !(rhs == *this);
+}
+
+int Tank::raw_speed() const {
+    return Tank::getSpeed() - Tank::armor * 5;
 }

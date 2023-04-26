@@ -11,7 +11,6 @@ private:
     bool weaponized;
 public:
     Humvee(const std::string &name, int speed, int year, int capacity, int storage, int occupied_storage, bool bulletproof, bool weaponized);
-
     ~Humvee() override;
 
     int getStorage() const;
@@ -31,6 +30,8 @@ public:
 
     void AddStorage(int s);
     void RemoveStorage(int s);
+
+    int raw_speed() const override;
 
 };
 

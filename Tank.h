@@ -28,6 +28,9 @@ public:
     void Shoot();
     void Repair(int procentage);
     void Damage(int procentage);
+
+    int raw_speed() const override;
+
 };
 
 

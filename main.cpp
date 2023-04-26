@@ -8,8 +8,7 @@ using namespace std;
 
 
 int main() {
-    Vehicle CAR("asd",1,2,3);
-    Humvee OK("asdasd",1,21,2,3,3,1,1);
+    Humvee OK("asdasd",1,21,2,7,2,1,1);
 
     return 0;
 }

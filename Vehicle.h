@@ -14,6 +14,8 @@ public:
     Vehicle();
     Vehicle(const std::string &name, int speed, int year, int capacity);
 
+    virtual int raw_speed() const = 0;
+
     virtual ~Vehicle();
 
     const std::string &getName() const;

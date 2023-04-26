@@ -14,9 +14,6 @@ private:
 public:
     Depot(const std::vector <Vehicle> &vList, const std::string &location);
 
-    const std::vector <Vehicle> &getVList() const;
-    void setVList(const std::vector <Vehicle> &vList);
-
     const std::string &getLocation() const;
     void setLocation(const std::string &location);
 
