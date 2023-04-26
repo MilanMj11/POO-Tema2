@@ -3,6 +3,7 @@
 
 #include "Vehicle.h"
 
+class MyOutOfBoundsException;
 class Humvee : public Vehicle {
 private:
     int storage;

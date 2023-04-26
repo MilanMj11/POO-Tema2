@@ -67,3 +67,14 @@ void Humvee::setOccupiedStorage(int occupiedStorage) {
 int Humvee::raw_speed() const {
     return Humvee::getSpeed() - Humvee::occupied_storage * 2;
 }
+
+class MyOutOfBoundsException : public std::exception {
+public:
+    MyOutOfBoundsException() = default; // modificat in functie de functionalitatea dorita
+
+    // obligatoriu
+    const char* what() const noexcept override  {
+        // modificat in functie de functionalitatea dorita
+        return "Out of bounds.";
+    }
+};
