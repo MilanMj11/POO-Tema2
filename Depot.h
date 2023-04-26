@@ -4,16 +4,15 @@
 #include <vector>
 #include "Vehicle.h"
 #include <string>
-
-
+#include <memory>
 
 class Depot {
+    static std::vector<std::shared_ptr<Vehicle>> VList;
 private:
-    std::vector <Vehicle> VList;
+    Depot();
     std::string location;
 public:
     Depot(const std::vector <Vehicle> &vList, const std::string &location);
-    Depot();
 
     const std::vector <Vehicle> &getVList() const;
     void setVList(const std::vector <Vehicle> &vList);
@@ -21,8 +20,7 @@ public:
     const std::string &getLocation() const;
     void setLocation(const std::string &location);
 
-    void addVehicle(Vehicle& v);
-    void removeVehicle(Vehicle& v);
+    static void addVehicle(std::shared_ptr<Vehicle>);
 
     virtual ~Depot();
 };
