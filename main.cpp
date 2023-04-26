@@ -1,13 +1,11 @@
 #include <bits/stdc++.h>
-#include "Item.h"
-#include "Character.h"
+#include "Vehicle.h"
 
 using namespace std;
 
 int main() {
-    char nume[100] = "jisdhfjsdkf";
-    Character eu(nume,10,100);
-    //cin >> eu; /// nume balanta putere
-    cout << eu << '\n';
+    Vehicle my_car;
+    my_car.setName("dragos");
+    cout << my_car.getName();
     return 0;
 }
