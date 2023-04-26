@@ -13,6 +13,7 @@ private:
     std::string location;
 public:
     Depot(const std::vector <Vehicle> &vList, const std::string &location);
+    Depot();
 
     const std::vector <Vehicle> &getVList() const;
     void setVList(const std::vector <Vehicle> &vList);

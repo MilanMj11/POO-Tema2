@@ -35,6 +35,7 @@ void Depot::removeVehicle(Vehicle& v){
     for(int i=0;i<this->VList.size();i++){
         if(this->VList[i] == v){
             this->VList.erase(this->VList.begin() + i);
+            break;
         }
     }
 }
