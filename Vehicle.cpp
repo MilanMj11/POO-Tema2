@@ -63,3 +63,8 @@ std::ostream& operator << (std::ostream &os, const Vehicle &rhs){
     os << "Year " << rhs.getYear();
     return os;
 }
+
+std::istream& operator >> (std::istream &is,Vehicle &rhs){
+    is >> rhs.name >> rhs.speed >> rhs.year >> rhs.capacity;
+    return is;
+}

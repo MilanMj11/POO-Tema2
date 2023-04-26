@@ -3,7 +3,7 @@
 
 #include "Vehicle.h"
 
-class MyOutOfBoundsException;
+class OutOfStorageException;
 class Humvee : public Vehicle {
 private:
     int storage;
