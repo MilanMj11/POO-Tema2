@@ -4,8 +4,7 @@
 using namespace std;
 
 int main() {
-    Vehicle my_car;
-    my_car.setName("dragos");
-    cout << my_car.getName();
+    Vehicle Tank("Panzer",20,1988,4);
+    cout << Tank;
     return 0;
 }

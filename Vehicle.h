@@ -1,28 +1,27 @@
 #ifndef OOP_VEHICLE_H
 #define OOP_VEHICLE_H
 
+#include <iostream>
 #include <string>
-
-using namespace std;
 
 class Vehicle {
 private:
-    string name;
+    std::string name;
     int speed;
     int year;
     int capacity; /// no. people
 public:
     Vehicle();
-    Vehicle(const string &name, int speed, int year, int capacity);
+    Vehicle(const std::string &name, int speed, int year, int capacity);
 
     virtual ~Vehicle();
 
-    const string &getName() const;
+    const std::string &getName() const;
     int getSpeed() const;
     int getYear() const;
     int getCapacity() const;
 
-    void setName(const string &name);
+    void setName(const std::string &name);
     void setSpeed(int speed);
     void setYear(int year);
     void setCapacity(int capacity);
@@ -30,7 +29,7 @@ public:
     bool operator==(const Vehicle &rhs) const;
     bool operator!=(const Vehicle &rhs) const;
 
-    friend ostream& operator << (ostream &os, const Vehicle &rhs);
+    friend std::ostream& operator << (std::ostream &os, const Vehicle &rhs);
 };
 
 

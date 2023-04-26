@@ -1,6 +1,6 @@
 #include "Vehicle.h"
 
-Vehicle::Vehicle(const string &name, int speed, int year, int capacity) : name(name), speed(speed), year(year),
+Vehicle::Vehicle(const std::string &name, int speed, int year, int capacity) : name(name), speed(speed), year(year),
                                                                           capacity(capacity) {}
 Vehicle::Vehicle(){
     this->name = "";
@@ -13,7 +13,7 @@ Vehicle::~Vehicle() {
 
 }
 
-const string &Vehicle::getName() const {
+const std::string &Vehicle::getName() const {
     return name;
 }
 
@@ -29,7 +29,7 @@ int Vehicle::getCapacity() const {
     return capacity;
 }
 
-void Vehicle::setName(const string &new_name) {
+void Vehicle::setName(const std::string &new_name) {
     Vehicle::name = new_name;
 }
 
@@ -56,10 +56,10 @@ bool Vehicle::operator!=(const Vehicle &rhs) const {
     return !(rhs == *this);
 }
 
-ostream& operator << (ostream &os, const Vehicle &rhs){
-    os << rhs.getCapacity() << ", ";
-    os << rhs.getSpeed() << ", ";
-    os << rhs.getYear() << " Credits" << ", ";
-    os << rhs.getName() << " Power";
+std::ostream& operator << (std::ostream &os, const Vehicle &rhs){
+    os << rhs.getName() << ", ";
+    os << rhs.getCapacity() << " Capacitiy, ";
+    os << rhs.getSpeed() << " Speed, ";
+    os << "Year " << rhs.getYear();
     return os;
 }
