@@ -6,20 +6,22 @@
 #include <string>
 
 
+
 class Depot {
 private:
-    vector <Vehicle> VList;
+    std::vector <Vehicle> VList;
     std::string location;
 public:
-    Depot(const vector <Vehicle> &vList, const std::string &location);
+    Depot(const std::vector <Vehicle> &vList, const std::string &location);
 
-    const vector <Vehicle> &getVList() const;
-
-    void setVList(const vector <Vehicle> &vList);
+    const std::vector <Vehicle> &getVList() const;
+    void setVList(const std::vector <Vehicle> &vList);
 
     const std::string &getLocation() const;
-
     void setLocation(const std::string &location);
+
+    void addVehicle(Vehicle& v);
+    void removeVehicle(Vehicle& v);
 
     virtual ~Depot();
 };
