@@ -1,8 +1,9 @@
 #include "Tank.h"
 
-Tank::Tank(const std::string &name, int speed, int year, int capacity, int ammunition, int armor) : Vehicle(name, speed, year, capacity),
+Tank::Tank(const std::string &name, int speed, int year, int capacity, int ammunition, int armor,int power) : Vehicle(name, speed, year, capacity),
                                                                                                     ammunition(ammunition),
-                                                                                                    armor(armor) {}
+                                                                                                    armor(armor),
+                                                                                                    power(power){}
 
 Tank::~Tank() {
 
@@ -30,4 +31,27 @@ void Tank::Shoot(){
 
 void Tank::Repair(int procentage){
     Tank::armor = std::max ( Tank::armor + procentage , 100 );
+}
+
+void Tank::Damage(int procentage){
+    Tank::armor = std::max ( 0, Tank::armor - procentage );
+}
+
+int Tank::getPower() const {
+    return power;
+}
+
+void Tank::setPower(int power) {
+    Tank::power = power;
+}
+
+bool Tank::operator==(const Tank &rhs) const {
+    return static_cast<const Vehicle &>(*this) == static_cast<const Vehicle &>(rhs) &&
+           ammunition == rhs.ammunition &&
+           armor == rhs.armor &&
+           power == rhs.power;
+}
+
+bool Tank::operator!=(const Tank &rhs) const {
+    return !(rhs == *this);
 }
