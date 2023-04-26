@@ -10,7 +10,7 @@ private:
     int power;
 public:
     Tank(const std::string &name, int speed, int year, int capacity, int ammunition, int armor,int power);
-
+    Tank();
     ~Tank() override;
 
     int getAmmunition() const;

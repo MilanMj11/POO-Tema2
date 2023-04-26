@@ -1,4 +1,5 @@
 #include "Vehicle.h"
+#include <iostream>
 
 Vehicle::Vehicle(const std::string &name, int speed, int year, int capacity) : name(name), speed(speed), year(year),
                                                                           capacity(capacity) {}
@@ -65,6 +66,13 @@ std::ostream& operator << (std::ostream &os, const Vehicle &rhs){
 }
 
 std::istream& operator >> (std::istream &is,Vehicle &rhs){
-    is >> rhs.name >> rhs.speed >> rhs.year >> rhs.capacity;
+    std::cout << "Introduceti nume: ";
+    is >> rhs.name;
+    std::cout << "Introduceti viteza: ";
+    is >> rhs.speed;
+    std::cout << "Introduceti an fabricatie: ";
+    is >> rhs.year;
+    std::cout << "Introduceti capacitatea persoane: ";
+    is>> rhs.capacity;
     return is;
 }

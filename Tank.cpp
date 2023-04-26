@@ -4,7 +4,7 @@ Tank::Tank(const std::string &name, int speed, int year, int capacity, int ammun
                                                                                                     ammunition(ammunition),
                                                                                                     armor(armor),
                                                                                                     power(power){}
-
+Tank::Tank(){}
 Tank::~Tank() {
 
 }
