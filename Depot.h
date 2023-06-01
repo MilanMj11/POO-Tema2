@@ -8,6 +8,7 @@
 
 class Depot {
     static std::vector<std::shared_ptr<Vehicle>> VList;
+    int capacity;
 private:
     std::string location;
 public:
@@ -16,6 +17,9 @@ public:
 
     const std::string &getLocation() const;
     void setLocation(const std::string &location);
+
+    void setCapacity(const int new_cap);
+    int getCapacity();
 
     static const std::vector<std::shared_ptr<Vehicle>> &getVList();
 

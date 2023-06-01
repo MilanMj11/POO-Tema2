@@ -38,8 +38,13 @@ int main() {
     cout << '\n';
     /// pentru exceptie , demonstratie ca merge :
     Humvee MyH("M220 TOW",70,2016,3,10,5,1,0);
-    MyH.AddStorage(4); /// pot sa adaug 4 , pentru ca 5+4 = 9 < 10
-    MyH.AddStorage(2); /// nu mai pot sa adaug , pentru ca 9+2 = 11 > 10
+    try{
+        MyH.AddStorage(4); /// pot sa adaug 4 , pentru ca 5+4 = 9 < 10
+        MyH.AddStorage(2); /// nu mai pot sa adaug , pentru ca 9+2 = 11 > 10
+    } catch (const std::exception &e){
+        cout << "Exception caught: " << e.what() << '\n';
+    }
+    /// MyH.print(); - nu am facut afisarea explicita , am afisat doar valorile una dupa alta
     /// asa ca arunca exceptie;
     return 0;
 }
