@@ -11,6 +11,7 @@ private:
     bool bulletproof;
     bool weaponized;
 public:
+    Vehicle* clone() const override;
     Humvee(const std::string &name, int speed, int year, int capacity, int storage, int occupied_storage, bool bulletproof, bool weaponized);
     ~Humvee() override;
 

@@ -9,12 +9,12 @@ private:
     int armor; /// max 100%
     int power;
 public:
-    Vehicle* clone() const override {
-        return new Tank(*this);
-    }
+    Vehicle* clone() const override;
     Tank(const std::string &name, int speed, int year, int capacity, int ammunition, int armor,int power);
     Tank();
     ~Tank() override;
+
+    friend std::ostream& operator<<(std::ostream& os, const Tank &obj);
 
     int getAmmunition() const;
     void setAmmunition(int ammunition);

@@ -9,6 +9,19 @@ Tank::~Tank() {
 
 }
 
+std::ostream& operator<<(std::ostream& os,const Tank &obj) {
+    obj.print();
+    return os;
+}
+
+void Tank::print() const{
+    std::cout << "Tank: " << Tank::ammunition << ' ' << Tank::power << ' ' << Tank::armor;
+}
+
+Vehicle* Tank::clone() const {
+    return new Tank(*this);
+}
+
 int Tank::getAmmunition() const {
     return ammunition;
 }

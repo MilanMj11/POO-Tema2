@@ -9,6 +9,10 @@ Humvee::~Humvee() {
 
 }
 
+Vehicle* Humvee::clone() const {
+    return new Humvee(*this);
+}
+
 int Humvee::getStorage() const {
     return storage;
 }
