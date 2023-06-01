@@ -11,6 +11,7 @@ private:
     int year;
     int capacity; /// no. people
 public:
+    virtual Vehicle* clone() const = 0;
     Vehicle();
     Vehicle(const std::string &name, int speed, int year, int capacity);
 

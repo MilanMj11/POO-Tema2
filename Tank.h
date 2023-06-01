@@ -9,6 +9,9 @@ private:
     int armor; /// max 100%
     int power;
 public:
+    Vehicle* clone() const override {
+        return new Tank(*this);
+    }
     Tank(const std::string &name, int speed, int year, int capacity, int ammunition, int armor,int power);
     Tank();
     ~Tank() override;
