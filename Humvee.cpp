@@ -66,6 +66,9 @@ void Humvee::AddStorage(int s) {
 }
 
 void Humvee::RemoveStorage(int s) {
+    if(Humvee::occupied_storage - s < 0){
+        throw std::logic_error("Error, you can't remove more storage than you have");
+    }
     Humvee::occupied_storage -= s;
 }
 
