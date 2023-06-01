@@ -7,6 +7,21 @@
 
 using namespace std;
 
+template <class T>
+float GetVehicleCost(T &veh){
+    float baseCost = 0.0f;
+    if(typeid(T) == typeid(Tank)){
+        baseCost = 1000.0f;
+    } else if(typeid(T) == typeid(Humvee)){
+        baseCost = 700.0f;
+    }
+    float additionalCost = 0.0f;
+    if(typeid(T) == typeid(Tank)){
+        float multiplier = 50-(2023-veh.getYear());
+        additionalCost = veh.getAmmunition() + veh.getArmor() + veh.getPower() * multiplier;
+    }
+}
+
 int main() {
     Depot depozit;
     depozit.setCapacity(10);
@@ -57,5 +72,7 @@ int main() {
     } catch (const std::exception &e) {
         cout << e.what() << '\n';
     }
+    Tank myRandomTank("nume",2,3,4,2,2,2);
+    myRandomTank.print(); /// - nu am facut afisarea explicita , am afisat doar valorile una dupa alta
     return 0;
 }
