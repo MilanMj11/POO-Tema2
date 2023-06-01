@@ -17,9 +17,13 @@ float GetVehicleCost(T &veh){
     }
     float additionalCost = 0.0f;
     if(typeid(T) == typeid(Tank)){
-        float multiplier = 50-(2023-veh.getYear());
+        float multiplier = 100-(2023-veh.getYear());
         additionalCost = veh.getAmmunition() + veh.getArmor() + veh.getPower() * multiplier;
+    } else if(typeid(T) == typeid(Humvee)){
+        float multiplier = 100-(2023-veh.getYear());
+        additionalCost = veh.isBulletproof() * 500 + veh.getStorage() * 50  + veh.isWeaponized() * 800;
     }
+    return baseCost+additionalCost;
 }
 
 int main() {
@@ -72,7 +76,12 @@ int main() {
     } catch (const std::exception &e) {
         cout << e.what() << '\n';
     }
-    Tank myRandomTank("nume",2,3,4,2,2,2);
+    Tank myRandomTank("nume",2,1993,4,2,2,2);
     myRandomTank.print(); /// - nu am facut afisarea explicita , am afisat doar valorile una dupa alta
+    Humvee myRandomHumvee("idk",1,1,1,1,1,1,1);
+    //cout << '\n' << GetVehicleCost(myRandomTank);
+    cout << '\n' << GetVehicleCost<Humvee>(myRandomHumvee);
+//    cout << '\n';
+//    cout << typeid(Tank).name() << ' ' << typeid(Humvee).name() << '\n';
     return 0;
 }
