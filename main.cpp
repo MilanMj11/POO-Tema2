@@ -10,16 +10,18 @@ using namespace std;
 template <class T>
 float GetVehicleCost(T &veh){
     float baseCost = 0.0f;
-    if(typeid(T) == typeid(Tank)){
+    if constexpr (std::is_same_v<T, Tank>){
         baseCost = 1000.0f;
-    } else if(typeid(T) == typeid(Humvee)){
+    }
+    if constexpr (std::is_same_v<T, Humvee>){
         baseCost = 700.0f;
     }
     float additionalCost = 0.0f;
-    if(typeid(T) == typeid(Tank)){
+    if constexpr (std::is_same_v<T, Tank>){
         float multiplier = 100-(2023-veh.getYear());
         additionalCost = veh.getAmmunition() + veh.getArmor() + veh.getPower() * multiplier;
-    } else if(typeid(T) == typeid(Humvee)){
+    }
+    if constexpr (std::is_same_v<T, Humvee>){
         float multiplier = 100-(2023-veh.getYear());
         additionalCost = veh.isBulletproof() * 500 + veh.getStorage() * 50  + veh.isWeaponized() * 800;
     }
@@ -80,8 +82,6 @@ int main() {
     myRandomTank.print(); /// - nu am facut afisarea explicita , am afisat doar valorile una dupa alta
     Humvee myRandomHumvee("idk",1,1,1,1,1,1,1);
     //cout << '\n' << GetVehicleCost(myRandomTank);
-    cout << '\n' << GetVehicleCost<Humvee>(myRandomHumvee);
-//    cout << '\n';
-//    cout << typeid(Tank).name() << ' ' << typeid(Humvee).name() << '\n';
+    //cout << '\n' << GetVehicleCost<Humvee>(myRandomHumvee);
     return 0;
 }
