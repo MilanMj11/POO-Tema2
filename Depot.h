@@ -8,7 +8,7 @@
 
 class Depot {
     static std::vector<std::shared_ptr<Vehicle>> VList;
-    int capacity;
+    static int capacity;
 private:
     std::string location;
 public:
