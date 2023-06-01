@@ -3,6 +3,8 @@
 
 
 std::vector<std::shared_ptr<Vehicle>> Depot::VList;
+int Depot::capacity = 0;
+
 Depot::Depot() = default;
 
 Depot::~Depot() {
@@ -26,7 +28,7 @@ void Depot::setLocation(const std::string &new_location) {
 
 void Depot::addVehicle(std::shared_ptr<Vehicle> v){
     if(VList.size() == Depot::capacity){
-        
+        throw std::out_of_range("Error: Depot is full");
     }
     VList.push_back(v);
 }

@@ -9,6 +9,7 @@ using namespace std;
 
 int main() {
     Depot depozit;
+    depozit.setCapacity(10);
     int n,nr;
     cout << "Cate vehicule doriti sa introduceti ?\n";
     cin >> n;
@@ -46,5 +47,15 @@ int main() {
     }
     /// MyH.print(); - nu am facut afisarea explicita , am afisat doar valorile una dupa alta
     /// asa ca arunca exceptie;
+    Depot depozit2;
+    depozit2.setCapacity(2);
+    std::shared_ptr<Tank> auxTank = make_shared<Tank>("name",1,1,1,1,1,1);
+    try{
+        depozit2.addVehicle(auxTank);
+        depozit2.addVehicle(auxTank);
+        depozit2.addVehicle(auxTank);
+    } catch (const std::exception &e) {
+        cout << e.what() << '\n';
+    }
     return 0;
 }
