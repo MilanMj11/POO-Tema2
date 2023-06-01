@@ -15,6 +15,9 @@ public:
     Humvee(const std::string &name, int speed, int year, int capacity, int storage, int occupied_storage, bool bulletproof, bool weaponized);
     ~Humvee() override;
 
+    void print() const override;
+    friend std::ostream& operator<<(std::ostream& os, const Humvee &obj);
+
     int getStorage() const;
     void setStorage(int storage);
 

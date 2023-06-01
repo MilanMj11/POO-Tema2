@@ -14,6 +14,7 @@ public:
     Tank();
     ~Tank() override;
 
+    void print() const override;
     friend std::ostream& operator<<(std::ostream& os, const Tank &obj);
 
     int getAmmunition() const;

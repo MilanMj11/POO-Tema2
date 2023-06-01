@@ -14,7 +14,7 @@ public:
     virtual Vehicle* clone() const = 0;
     Vehicle();
     Vehicle(const std::string &name, int speed, int year, int capacity);
-    virtual std::ostream& print(std::ostream& os) const = 0;
+    virtual void print() const = 0;
 
     virtual int raw_speed() const = 0;
 

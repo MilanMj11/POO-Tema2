@@ -9,6 +9,15 @@ Humvee::~Humvee() {
 
 }
 
+std::ostream& operator<<(std::ostream& os,const Humvee &obj) {
+    obj.print();
+    return os;
+}
+
+void Humvee::print() const{
+    std::cout << "Humvee: " << Humvee::storage << ' ' << Humvee::occupied_storage << ' ' << Humvee::armor;
+}
+
 Vehicle* Humvee::clone() const {
     return new Humvee(*this);
 }
